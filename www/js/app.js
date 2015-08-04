@@ -17,3 +17,42 @@ angular.module('ddApp', ['ionic', 'ddApp.services', 'ddApp.controllers'])
     }
   });
 })
+.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  $stateProvider
+      .state(
+      'login', {
+        url: '/login',
+        templateUrl: 'templates/login.html',
+        controller: 'LoginCtrl'
+      })
+      .state(
+      'list', {
+        url: '/list',
+        templateUrl: 'templates/list.html',
+        controller: 'ListCtrl'
+      })
+      .state(
+      'scan', {
+        url: '/scan',
+        templateUrl: 'templates/scan.html',
+        controller: 'ScanCtrl'
+      })
+      .state(
+      'manual', {
+        url: '/manual',
+        templateUrl: 'templates/manual.html',
+        controller: 'ManualCtrl'
+      })
+      .state(
+      'detail', {
+        url: '/detail/:orderId',
+        templateUrl: 'templates/detail.html',
+        controller: 'DetailCtrl'
+      })
+
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/login');
+
+  $ionicConfigProvider.tabs.style('ios'); //even if you're on android
+  $ionicConfigProvider.tabs.position('ios'); //even if you're on android
+});

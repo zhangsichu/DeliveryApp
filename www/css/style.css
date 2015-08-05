@@ -1,9 +1,6 @@
 /* Empty. Add your own CSS if you like */
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
-=======
->>>>>>> the login page UI.
 
 /*Validation*/
 form i.icon.error {
@@ -64,10 +61,6 @@ form.ng-submitted input.ng-valid + i.icon.error {
     max-width: 10%;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> list page
 /*Global*/
 .icon-text:before{
     margin-right: 0.25em;
@@ -76,11 +69,6 @@ form.ng-submitted input.ng-valid + i.icon.error {
 .popup-body{
     text-align: center;
 }
-<<<<<<< HEAD
-=======
->>>>>>> the login page UI.
-=======
->>>>>>> list page
 
 /*Login*/
 .login-title{
@@ -94,16 +82,9 @@ form.ng-submitted input.ng-valid + i.icon.error {
     font-weight: bolder;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-/*List*/
-.order-list{
-    top: 45px;
-=======
 /*List*/
 .order-list{
     top: 43px;
->>>>>>> list page
     margin-bottom: 46px;
     position: absolute;
 }
@@ -132,64 +113,4 @@ form.ng-submitted input.ng-valid + i.icon.error {
     float: right;
     margin-top: 0.3em;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
 >>>>>>> Revert "the detail manual scan pages."
-=======
-
-/*Detail*/
-.order-detail{
-    top: 45px;
-    position: absolute;
-}
-
-.order-item .order-detail-check{
-    float: right;
-    margin-top: 1.2em;
-}
-
-.order-detail-count{
-    display: inline-block;
-    margin: 0 0.5em 0 0;
-    font-size: 1.5em;
-}
-
-.qr-code-item{
-    text-align: center;
-}
-
-.qr-code-item > img{
-    width: 50%;
-    border: 0;
-    margin-top: 10px;
-}
-
-.qr-code-item > h4{
-    margin: 2px 0 5px 0;
-}
-
-/*Manual*/
-.input-code-content{
-    padding: 25% 1em 0 1em;
-}
-
-.input-code-content .input-wrapper{
-    text-align: center;
-    width: 80%;
-    margin-left: 10%;
-    margin-top: 15%;
-}
-
-/*Scan*/
-.scan-container{
-    width: 15em;
-    margin: 10% auto 0 auto;
-    min-height: 15em;
-    border: dashed 1px #387ef5;
-}
->>>>>>> the detail manual scan pages.
-=======
-
->>>>>>> the login page UI.
-=======
->>>>>>> list page

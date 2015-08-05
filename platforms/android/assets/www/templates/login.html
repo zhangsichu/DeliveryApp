@@ -1,0 +1,25 @@
+<ion-view title="用户登录">
+    <ion-content class="padding">
+        <div class="login-title">
+            <h2 class="energized">方便每一天</h2>
+            <h2 class="assertive">配送系统</h2>
+        </div>
+        <div>
+            <form novalidate="novalidate" on-valid-submit="doLogin()">
+                <label class="item item-input validated">
+                    <span class="input-label" for="account">账号</span>
+                    <input id="account" type="text" ng-model="user.name" placeholder="账号" required="required" name="account" />
+                    <i class="icon ion-alert-circled error"></i>
+                </label>
+                <label class="item item-input validated">
+                    <span class="input-label" for="password">密码</span>
+                    <input id="password" type="password" ng-model="user.password" placeholder="********" required="required" name="password" />
+                    <i class="icon ion-alert-circled error"></i>
+                </label>
+                <label class="item">
+                    <button type="submit" class="button button-block button-positive icon ion-person icon-text">登录</button>
+                </label>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

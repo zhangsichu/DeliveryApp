@@ -1,1 +1,164 @@
 /* Empty. Add your own CSS if you like */
+
+/*Validation*/
+form i.icon.error {
+    color: #ef4e3a;
+    font-size: 1.1em;
+}
+
+form input + i.icon.error {
+    display: none;
+    margin-left: 8px;
+}
+
+form.ng-submitted input.ng-invalid + i.icon.error {
+    display: block;
+}
+
+form .has-error {
+    border-left: 3px solid #cc2511;
+}
+
+form .has-success {
+    border-left: 3px solid #3d8b3d;
+}
+
+form.ng-submitted input.ng-valid + i.icon.error {
+    display: none;
+}
+
+.validated {}
+
+.validated .input-label {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 30%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 30%;
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
+.validated input {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 60%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 60%;
+    -ms-flex: 0 0 60%;
+    flex: 0 0 60%;
+    max-width: 60%;
+}
+
+.validated error {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 10%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 10%;
+    -ms-flex: 0 0 10%;
+    flex: 0 0 10%;
+    max-width: 10%;
+}
+
+/*Global*/
+.icon-text:before{
+    margin-right: 0.25em;
+}
+
+.popup-body{
+    text-align: center;
+}
+
+/*Login*/
+.login-title{
+    margin: 10% 10% 10% 10%;
+    text-align: center;
+}
+
+.login-title h2{
+    font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+/*List*/
+.order-list{
+    top: 45px;
+    margin-bottom: 46px;
+    position: absolute;
+}
+.order-item{
+    padding: 10px 5px 5px 10px;
+}
+.order-item .order-img {
+    width: 55px;
+    height: 55px;
+    border: solid 1px #262626;
+    opacity: 0.9;
+}
+.order-item .order-text{
+    display: inline-block;
+    vertical-align: top;
+    padding: 0px 0 0 8px;
+}
+.order-item .order-text h2 {
+    padding-bottom: 10px;
+    font-size: 1.2em;
+}
+.order-item .order-text h3 {
+    font-size: 1.1em;
+}
+.order-item .order-check{
+    float: right;
+    margin-top: 0.3em;
+}
+
+/*Detail*/
+.order-detail{
+    top: 45px;
+    position: absolute;
+}
+
+.order-item .order-detail-check{
+    float: right;
+    margin-top: 1.2em;
+}
+
+.order-detail-count{
+    display: inline-block;
+    margin: 0 0.5em 0 0;
+    font-size: 1.5em;
+}
+
+.qr-code-item{
+    text-align: center;
+}
+
+.qr-code-item > img{
+    width: 50%;
+    border: 0;
+    margin-top: 10px;
+}
+
+.qr-code-item > h4{
+    margin: 2px 0 5px 0;
+}
+
+/*Manual*/
+.input-code-content{
+    padding: 25% 1em 0 1em;
+}
+
+.input-code-content .input-wrapper{
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 15%;
+}
+
+/*Scan*/
+.scan-container{
+    width: 15em;
+    margin: 10% auto 0 auto;
+    min-height: 15em;
+    border: dashed 1px #387ef5;
+}

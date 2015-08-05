@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-<h1>List</h1>
-
-<button ng-click="goDetail();">进入一个订单</button>
-
-<button ng-click="goScan();">扫描一个订单</button>
-
-<button ng-click="goManual();">手动输入</button>
-
-<p>
-    <button ng-click="doExit();">退出系统</button>
-</p>
-=======
 <ion-view view-title="{{now | date:'yyyy年M月d日'}}">
     <ion-nav-bar class="bar bar-balanced" align-title="center">
         <ion-nav-buttons side="left">
@@ -18,13 +5,13 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="list order-list">
-        <ion-item  class="item order-item" ng-repeat="order in orders">
+        <ion-item  class="item order-item" ng-repeat="order in orders" ng-click="goDetail(order.id)">
             <img class="order-img" ng-src="{{order.qrSrc}}" ng-click="goDetail(order.id)" />
             <div class="order-text">
                 <h2 ng-click="goDetail(order.id)">{{order.code}}</h2>
                 <h3>{{order.pickTime}}</h3>
             </div>
-            <div class="order-check" ng-click="goDetail(order.id)">
+            <div class="order-check">
                 <a class="button icon-right ion-chevron-right button-clear button-assertive"></a>
             </div>
         </ion-item >
@@ -36,4 +23,3 @@
         </div>
     </div>
 </ion-view>
->>>>>>> Revert "the detail manual scan pages."

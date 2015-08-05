@@ -1,3 +1,20 @@
-<h1>Manual</h1>
-
-<button ng-click="goDetail();">输入成功进入一个订单</button>
+<ion-view view-title="请输入订单号码">
+    <ion-nav-bar class="bar bar-calm" align-title="center">
+        <ion-nav-buttons side="left">
+            <li class="button icon icon-left ion-chevron-left" ng-click="goList()">取消</li>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="input-code-content">
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-ios-keypad placeholder-icon"></i>
+                <input type="text" placeholder="请输入订单号码">
+            </label>
+            <div class="input-wrapper">
+                <button class="button button-block button-positive icon ion-ios-keypad-outline icon-text" ng-click="doInput()">
+                    确定
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

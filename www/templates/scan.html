@@ -1,3 +1,13 @@
-<h1>Scan</h1>
-
-<button ng-click="goDetail();">扫描成功进入一个订单</button>
+<ion-view view-title="扫描订单">
+    <ion-nav-bar class="bar bar-calm" align-title="center">
+        <ion-nav-buttons side="left">
+            <li class="button icon icon-left ion-chevron-left" ng-click="goList()">取消</li>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="padding">
+        <div class="scan-container"></div>
+        <button class="button button-block button-positive icon ion-ios-arrow-back icon-text" ng-click="goList()">
+            取消
+        </button>
+    </ion-content>
+</ion-view>

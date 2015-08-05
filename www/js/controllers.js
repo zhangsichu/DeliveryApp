@@ -25,16 +25,11 @@ angular.module('ddApp.controllers', ['ddApp.services'])
 
         $scope.goDetail = function (orderId) {
             $ionicViewSwitcher.nextDirection('forward');
-<<<<<<< HEAD
             $state.go("detail", {orderId: orderId});
-=======
-            $state.go("detail", {orderId: orderId}, {reload: true});
->>>>>>> merge
         };
 
         $scope.goScan = function(){
             $ionicViewSwitcher.nextDirection('forward');
-<<<<<<< HEAD
             $state.go("manual");
 >>>>>>> Revert "the detail manual scan pages."
         };
@@ -44,31 +39,6 @@ angular.module('ddApp.controllers', ['ddApp.services'])
         $scope.doExit = function(){
             $state.go('login');
         }
-=======
-            $state.go("scan");
-        };
-
-        $scope.goManual = function(){
-            $ionicViewSwitcher.nextDirection('forward');
-            $state.go("manual");
-        };
-
-        $ionicLoading.show({
-            template: "派送列表加载中..."
-        });
-
-        OrderService.all().then(
-            function(data){
-                if(data.success){
-                    $scope.orders = data.data;
-                }
-                $ionicLoading.hide();
-            },
-            function(){
-                $ionicLoading.hide();
-            }
-        );
->>>>>>> merge
     })
     .controller('DetailCtrl', function ($scope, $state, $ionicPopup, $ionicHistory, $ionicViewSwitcher, $ionicLoading) {
         $scope.goList = function() {

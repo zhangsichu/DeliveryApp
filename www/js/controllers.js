@@ -3,10 +3,17 @@
  */
 angular.module('ddApp.controllers', ['ddApp.services'])
     .controller('LoginCtrl', function ($scope, $state, $ionicPopup, $ionicHistory, $ionicViewSwitcher, $ionicLoading) {
-       $scope.doLogin = function() {
+        $scope.user = {
+            name: null,
+            password: null
+        };
+
+        $scope.doLogin = function() {
+           $ionicViewSwitcher.nextDirection('forward');
            $state.go('list', {}, {reload: true});
        }
     })
+<<<<<<< HEAD
 <<<<<<< HEAD
     .controller('ListCtrl', function ($scope, $state, $ionicPopup, $ionicHistory, $ionicViewSwitcher, $ionicLoading) {
         $scope.goDetail = function() {
@@ -36,13 +43,46 @@ angular.module('ddApp.controllers', ['ddApp.services'])
 =======
             $state.go("scan");
 >>>>>>> the detail manual scan pages.
+=======
+    .controller('ListCtrl', function ($scope, $state, $ionicPopup, $ionicHistory, $ionicViewSwitcher, $ionicLoading, OrderService) {
+        $scope.now = new Date();
+
+        $scope.doLogout = function () {
+            $ionicViewSwitcher.nextDirection('back');
+            $state.go("login");
         };
-        $scope.goManual = function() {
-            $state.go('manual');
+
+        $scope.goDetail = function (orderId) {
+            $ionicViewSwitcher.nextDirection('forward');
+            $state.go("detail", {orderId: orderId});
+>>>>>>> list page
         };
-        $scope.doExit = function(){
-            $state.go('login');
-        }
+
+        $scope.goScan = function(){
+            $ionicViewSwitcher.nextDirection('forward');
+            $state.go("manual");
+        };
+
+        $scope.goManual = function(){
+            $ionicViewSwitcher.nextDirection('forward');
+            $state.go("manual");
+        };
+
+        $ionicLoading.show({
+            template: "派送列表加载中..."
+        });
+
+        OrderService.all().then(
+            function(data){
+                if(data.success){
+                    $scope.orders = data.data;
+                }
+                $ionicLoading.hide();
+            },
+            function(){
+                $ionicLoading.hide();
+            }
+        );
     })
     .controller('DetailCtrl', function ($scope, $state, $ionicPopup, $ionicHistory, $ionicSlideBoxDelegate, $ionicScrollDelegate, $ionicViewSwitcher, $ionicLoading, $stateParams, OrderService) {
         $scope.goList = function () {

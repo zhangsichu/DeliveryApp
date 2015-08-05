@@ -65,6 +65,9 @@ form.ng-submitted input.ng-valid + i.icon.error {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> list page
 /*Global*/
 .icon-text:before{
     margin-right: 0.25em;
@@ -73,8 +76,11 @@ form.ng-submitted input.ng-valid + i.icon.error {
 .popup-body{
     text-align: center;
 }
+<<<<<<< HEAD
 =======
 >>>>>>> the login page UI.
+=======
+>>>>>>> list page
 
 /*Login*/
 .login-title{
@@ -89,9 +95,15 @@ form.ng-submitted input.ng-valid + i.icon.error {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*List*/
 .order-list{
     top: 45px;
+=======
+/*List*/
+.order-list{
+    top: 43px;
+>>>>>>> list page
     margin-bottom: 46px;
     position: absolute;
 }
@@ -120,6 +132,7 @@ form.ng-submitted input.ng-valid + i.icon.error {
     float: right;
     margin-top: 0.3em;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> Revert "the detail manual scan pages."
 =======
@@ -178,3 +191,5 @@ form.ng-submitted input.ng-valid + i.icon.error {
 =======
 
 >>>>>>> the login page UI.
+=======
+>>>>>>> list page

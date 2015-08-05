@@ -84,7 +84,11 @@ form.ng-submitted input.ng-valid + i.icon.error {
 
 /*List*/
 .order-list{
+<<<<<<< HEAD
     top: 43px;
+=======
+    top: 45px;
+>>>>>>> merge
     margin-bottom: 46px;
     position: absolute;
 }
@@ -113,4 +117,58 @@ form.ng-submitted input.ng-valid + i.icon.error {
     float: right;
     margin-top: 0.3em;
 }
+<<<<<<< HEAD
 >>>>>>> Revert "the detail manual scan pages."
+=======
+
+/*Detail*/
+.order-detail{
+    top: 45px;
+    position: absolute;
+}
+
+.order-item .order-detail-check{
+    float: right;
+    margin-top: 1.2em;
+}
+
+.order-detail-count{
+    display: inline-block;
+    margin: 0 0.5em 0 0;
+    font-size: 1.5em;
+}
+
+.qr-code-item{
+    text-align: center;
+}
+
+.qr-code-item > img{
+    width: 50%;
+    border: 0;
+    margin-top: 10px;
+}
+
+.qr-code-item > h4{
+    margin: 2px 0 5px 0;
+}
+
+/*Manual*/
+.input-code-content{
+    padding: 25% 1em 0 1em;
+}
+
+.input-code-content .input-wrapper{
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 15%;
+}
+
+/*Scan*/
+.scan-container{
+    width: 15em;
+    margin: 10% auto 0 auto;
+    min-height: 15em;
+    border: dashed 1px #387ef5;
+}
+>>>>>>> merge

@@ -18,13 +18,21 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="list order-list">
+<<<<<<< HEAD
         <ion-item  class="item order-item" ng-repeat="order in orders">
+=======
+        <ion-item  class="item order-item" ng-repeat="order in orders" ng-click="goDetail(order.id)">
+>>>>>>> merge
             <img class="order-img" ng-src="{{order.qrSrc}}" ng-click="goDetail(order.id)" />
             <div class="order-text">
                 <h2 ng-click="goDetail(order.id)">{{order.code}}</h2>
                 <h3>{{order.pickTime}}</h3>
             </div>
+<<<<<<< HEAD
             <div class="order-check" ng-click="goDetail(order.id)">
+=======
+            <div class="order-check">
+>>>>>>> merge
                 <a class="button icon-right ion-chevron-right button-clear button-assertive"></a>
             </div>
         </ion-item >

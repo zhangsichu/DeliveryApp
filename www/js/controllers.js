@@ -7,12 +7,31 @@ angular.module('ddApp.controllers', ['ddApp.services'])
            $state.go('list', {}, {reload: true});
        }
     })
+<<<<<<< HEAD
     .controller('ListCtrl', function ($scope, $state, $ionicPopup, $ionicHistory, $ionicViewSwitcher, $ionicLoading) {
         $scope.goDetail = function() {
             $state.go('detail', {}, {reload: true});
         };
         $scope.goScan = function() {
             $state.go('scan');
+=======
+    .controller('ListCtrl', function ($scope, $state, $ionicPopup, $ionicHistory, $ionicViewSwitcher, $ionicLoading, OrderService) {
+        $scope.now = new Date();
+
+        $scope.doLogout = function () {
+            $ionicViewSwitcher.nextDirection('back');
+            $state.go("login");
+        };
+
+        $scope.goDetail = function (orderId) {
+            $ionicViewSwitcher.nextDirection('forward');
+            $state.go("detail", {orderId: orderId});
+        };
+
+        $scope.goScan = function(){
+            $ionicViewSwitcher.nextDirection('forward');
+            $state.go("manual");
+>>>>>>> Revert "the detail manual scan pages."
         };
         $scope.goManual = function() {
             $state.go('manual');

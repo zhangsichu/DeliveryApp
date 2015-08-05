@@ -1,1 +1,116 @@
 /* Empty. Add your own CSS if you like */
+<<<<<<< HEAD
+=======
+
+/*Validation*/
+form i.icon.error {
+    color: #ef4e3a;
+    font-size: 1.1em;
+}
+
+form input + i.icon.error {
+    display: none;
+    margin-left: 8px;
+}
+
+form.ng-submitted input.ng-invalid + i.icon.error {
+    display: block;
+}
+
+form .has-error {
+    border-left: 3px solid #cc2511;
+}
+
+form .has-success {
+    border-left: 3px solid #3d8b3d;
+}
+
+form.ng-submitted input.ng-valid + i.icon.error {
+    display: none;
+}
+
+.validated {}
+
+.validated .input-label {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 30%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 30%;
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
+.validated input {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 60%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 60%;
+    -ms-flex: 0 0 60%;
+    flex: 0 0 60%;
+    max-width: 60%;
+}
+
+.validated error {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 10%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 10%;
+    -ms-flex: 0 0 10%;
+    flex: 0 0 10%;
+    max-width: 10%;
+}
+
+/*Global*/
+.icon-text:before{
+    margin-right: 0.25em;
+}
+
+.popup-body{
+    text-align: center;
+}
+
+/*Login*/
+.login-title{
+    margin: 10% 10% 10% 10%;
+    text-align: center;
+}
+
+.login-title h2{
+    font-family: "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+/*List*/
+.order-list{
+    top: 43px;
+    margin-bottom: 46px;
+    position: absolute;
+}
+.order-item{
+    padding: 10px 5px 5px 10px;
+}
+.order-item .order-img {
+    width: 55px;
+    height: 55px;
+    border: solid 1px #262626;
+    opacity: 0.9;
+}
+.order-item .order-text{
+    display: inline-block;
+    vertical-align: top;
+    padding: 0px 0 0 8px;
+}
+.order-item .order-text h2 {
+    padding-bottom: 10px;
+    font-size: 1.2em;
+}
+.order-item .order-text h3 {
+    font-size: 1.1em;
+}
+.order-item .order-check{
+    float: right;
+    margin-top: 0.3em;
+}
+>>>>>>> Revert "the detail manual scan pages."

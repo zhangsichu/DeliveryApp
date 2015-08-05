@@ -1,6 +1,9 @@
 /* Empty. Add your own CSS if you like */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> the login page UI.
 
 /*Validation*/
 form i.icon.error {
@@ -61,6 +64,7 @@ form.ng-submitted input.ng-valid + i.icon.error {
     max-width: 10%;
 }
 
+<<<<<<< HEAD
 /*Global*/
 .icon-text:before{
     margin-right: 0.25em;
@@ -69,6 +73,8 @@ form.ng-submitted input.ng-valid + i.icon.error {
 .popup-body{
     text-align: center;
 }
+=======
+>>>>>>> the login page UI.
 
 /*Login*/
 .login-title{
@@ -82,6 +88,7 @@ form.ng-submitted input.ng-valid + i.icon.error {
     font-weight: bolder;
 }
 
+<<<<<<< HEAD
 /*List*/
 .order-list{
     top: 45px;
@@ -168,3 +175,6 @@ form.ng-submitted input.ng-valid + i.icon.error {
     border: dashed 1px #387ef5;
 }
 >>>>>>> the detail manual scan pages.
+=======
+
+>>>>>>> the login page UI.

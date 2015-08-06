@@ -8,7 +8,7 @@ form i.icon.error {
 
 form input + i.icon.error {
     display: none;
-    margin-left: 8px;
+    margin-right: 0.3em;
 }
 
 form.ng-submitted input.ng-invalid + i.icon.error {
@@ -40,13 +40,6 @@ form.ng-submitted input.ng-valid + i.icon.error {
 }
 
 .validated input {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 60%;
-    -moz-box-flex: 0;
-    -moz-flex: 0 0 60%;
-    -ms-flex: 0 0 60%;
-    flex: 0 0 60%;
-    max-width: 60%;
 }
 
 .validated error {

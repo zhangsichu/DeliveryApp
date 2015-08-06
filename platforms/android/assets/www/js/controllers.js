@@ -13,7 +13,7 @@ angular.module('ddApp.controllers', ['ddApp.services'])
            $state.go('list', {}, {reload: true});
        }
     })
-    .controller('ListCtrl', function ($scope, $state, $ionicPopup, $ionicHistory, $ionicViewSwitcher, $ionicLoading, OrderService) {
+    .controller('ListCtrl', function ($scope, $state, $ionicPopup, $ionicHistory, $ionicViewSwitcher, $ionicLoading, $cordovaBarcodeScanner, OrderService) {
         $scope.now = new Date();
 
         $scope.doLogout = function () {
@@ -26,10 +26,55 @@ angular.module('ddApp.controllers', ['ddApp.services'])
             $state.go("detail", {orderId: orderId}, {reload: true});
         };
 
-        $scope.goScan = function(){
-            $ionicViewSwitcher.nextDirection('forward');
-            $state.go("scan");
+        var doScan = function(){
+            $cordovaBarcodeScanner.scan().then(function(imageData) {
+                if(imageData.text != null && imageData.text != ''){
+                    $ionicPopup.alert({ title: '扫描成功', template: imageData.text, okText: '确定' }).then(function () {
+                            $ionicLoading.show({
+                                template: '订单查询中...'
+                            });
+                            OrderService.itemByCode(imageData.text).then(function(data){
+                                $ionicLoading.hide();
+                                if(data.success && data.data != null){
+                                    $ionicViewSwitcher.nextDirection('forward');
+                                    $state.go("detail", {orderId: data.data.id}, {reload: true});
+                                }
+                                else {
+                                    $ionicPopup.alert({title: '派餐系统', template: '订单未找到～', okText: '确定'}).then(function(){
+                                        $ionicViewSwitcher.nextDirection('back');
+                                        $state.go("list");
+                                    });
+                                }
+                            },
+                            function(){
+                                $ionicLoading.hide();
+                            });
+                    });
+                }
+                else{
+                    $timeout(function(){
+                        $ionicPopup.confirm({ title: '扫描失败',
+                            template: '是否重新扫描?',
+                            cancelText: '取消',
+                            okText: '重新扫描'
+                        }).then(function(yes) {
+                            if(yes)
+                                doScan();
+                            else{
+                                $ionicViewSwitcher.nextDirection('back');
+                                $state.go("list");
+                            }
+                        })}, 100);
+                }
+            }, function(error) {
+                $ionicPopup.alert({ title: '扫描失败', template: error, okText: '确定' }).then(function () {
+                    $ionicViewSwitcher.nextDirection('back');
+                    $state.go("list");
+                });
+            });
         };
+
+        $scope.goScan = doScan;
 
         $scope.goManual = function(){
             $ionicViewSwitcher.nextDirection('forward');
@@ -58,6 +103,11 @@ angular.module('ddApp.controllers', ['ddApp.services'])
             $state.go("list");
         };
 
+        $scope.goBack = function(){
+            $ionicViewSwitcher.nextDirection('back');
+            $ionicHistory.goBack();
+        };
+
         $scope.doDone = function(){
 
         };
@@ -66,7 +116,7 @@ angular.module('ddApp.controllers', ['ddApp.services'])
             template: '订单明细加载中...'
         });
 
-        OrderService.detail($stateParams.orderId).then(
+        OrderService.detailById($stateParams.orderId).then(
             function(data){
                 if(data.success){
                     $scope.data = data.data;
@@ -78,14 +128,30 @@ angular.module('ddApp.controllers', ['ddApp.services'])
             }
         );
     })
-    .controller('ManualCtrl', function ($scope, $state, $ionicPopup, $ionicHistory, $ionicViewSwitcher, $ionicLoading) {
+    .controller('ManualCtrl', function ($scope, $state, $ionicPopup, $ionicHistory, $ionicViewSwitcher, $ionicLoading, OrderService) {
+        $scope.data = { orderCode : null };
+
         $scope.goList = function(){
             $ionicViewSwitcher.nextDirection('back');
             $state.go("list");
         };
 
         $scope.doInput = function(){
-
+            $ionicLoading.show({
+                template: '订单查询中...'
+            });
+            OrderService.itemByCode($scope.data.orderCode).then(function(data){
+                    $ionicLoading.hide();
+                    if(data.success && data.data != null){
+                        $state.go("detail", {orderId: data.data.id}, {reload: true});
+                    }
+                    else {
+                        $ionicPopup.alert({title: '派餐系统', template: '订单未找到～', okText: '确定'});
+                    }
+                },
+                function(){
+                    $ionicLoading.hide();
+            });
         };
     })
     .controller('ScanCtrl', function ($scope, $state, $ionicPopup, $ionicHistory, $ionicViewSwitcher, $ionicLoading) {

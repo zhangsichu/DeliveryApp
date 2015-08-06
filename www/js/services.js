@@ -9,11 +9,12 @@ angular.module('ddApp.services', [])
             buildUrl: function (subUrl) {
                 return this.baseUrl + subUrl;
             },
-            getTargetById: function (list, id) {
+            getTargetByIdentity: function (list, identity, value) {
                 for (var i = 0; i < list.length; i++) {
-                    if (list[i].id == id)
+                    if (list[i][identity] == value)
                         return list[i];
                 }
+                return null;
             }
         };
 
@@ -180,15 +181,13 @@ angular.module('ddApp.services', [])
             date: new Date(2015, 6, 7)
         }];
 
-        var getOrderDetail = function(orderId){
-            var target = CommonService.getTargetById(orderData, orderId);
-
+        var buildOrderDetail = function(order){
             var result = {};
-            result.id = target.id;
-            result.code = target.code;
+            result.id = order.id;
+            result.code = order.code;
             result.qrSrc = "img/data/qrCode.png";
-            result.total = target.total;
-            result.date = target.date;
+            result.total = order.total;
+            result.date = order.date;
 
             result.location = locationData[random(0, locationData.length)].name;
             result.pickTime = timeData[random(0, timeData.length)].name;
@@ -218,9 +217,22 @@ angular.module('ddApp.services', [])
             return result;
         };
 
+        var getOrderDetailById = function(orderId){
+            var order = CommonService.getTargetByIdentity(orderData, "id", orderId);
+            if(order != null)
+                return buildOrderDetail(order);
+            return null;
+        };
+
+        var getOrderByCode = function (orderCode) {
+            var order = CommonService.getTargetByIdentity(orderData, "code", orderCode);
+            return order;
+        }
+
         return {
             orderData: orderData,
-            getOrderDetail: getOrderDetail
+            getOrderDetailById: getOrderDetailById,
+            getOrderByCode: getOrderByCode
         };
     })
     .factory("OrderService", function($q, $http, $timeout, MockDB){
@@ -237,13 +249,25 @@ angular.module('ddApp.services', [])
 
                 return deferred.promise;
             },
-            detail: function(orderId){
+            detailById: function(orderId){
                 var deferred = $q.defer();
 
                 $timeout(function () {
                     deferred.resolve({
                         success : true,
-                        data: MockDB.getOrderDetail(orderId)
+                        data: MockDB.getOrderDetailById(orderId)
+                    });
+                }, 420);
+
+                return deferred.promise;
+            },
+            itemByCode : function(orderCode){
+                var deferred = $q.defer();
+
+                $timeout(function () {
+                    deferred.resolve({
+                        success : true,
+                        data: MockDB.getOrderByCode(orderCode)
                     });
                 }, 420);
 

@@ -5,16 +5,19 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="input-code-content">
-        <div class="list list-inset">
-            <label class="item item-input">
-                <i class="icon ion-ios-keypad placeholder-icon"></i>
-                <input type="text" placeholder="请输入订单号码">
-            </label>
-            <div class="input-wrapper">
-                <button class="button button-block button-positive icon ion-ios-keypad-outline icon-text" ng-click="doInput()">
-                    确定
-                </button>
+        <form novalidate="novalidate" on-valid-submit="doInput()">
+            <div class="list list-inset">
+                <label class="item item-input validated">
+                    <i class="icon ion-ios-keypad placeholder-icon" for="orderCode"></i>
+                    <input type="text" maxlength="15" placeholder="请输入订单号码" ng-model="data.orderCode" id="orderCode" required="required" name="orderCode">
+                    <i class="icon ion-alert-circled error"></i>
+                </label>
+                <div class="input-wrapper">
+                    <button type="submit" class="button button-block button-positive icon ion-ios-keypad-outline icon-text" >
+                        确定
+                    </button>
+                </div>
             </div>
-        </div>
+        </form>
     </ion-content>
 </ion-view>

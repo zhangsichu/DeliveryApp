@@ -29,7 +29,7 @@ angular.module('ddApp.controllers', ['ddApp.services'])
         var doScan = function(){
             $cordovaBarcodeScanner.scan().then(function(imageData) {
                 if(imageData.text != null && imageData.text != ''){
-                    $ionicPopup.alert({ title: '扫描成功', template: imageData.text, okText: '确定' }).then(function () {
+                    $ionicPopup.alert({ title: '扫描成功', template: "订单:" + imageData.text, okText: '确定' }).then(function () {
                             $ionicLoading.show({
                                 template: '订单查询中...'
                             });
@@ -52,19 +52,18 @@ angular.module('ddApp.controllers', ['ddApp.services'])
                     });
                 }
                 else{
-                    $timeout(function(){
-                        $ionicPopup.confirm({ title: '扫描失败',
-                            template: '是否重新扫描?',
-                            cancelText: '取消',
-                            okText: '重新扫描'
-                        }).then(function(yes) {
-                            if(yes)
-                                doScan();
-                            else{
-                                $ionicViewSwitcher.nextDirection('back');
-                                $state.go("list");
-                            }
-                        })}, 100);
+                    $ionicPopup.confirm({ title: '扫描失败',
+                        template: '是否重新扫描?',
+                        cancelText: '取消',
+                        okText: '重新扫描'
+                    }).then(function(yes) {
+                        if (yes)
+                            doScan();
+                        else {
+                            $ionicViewSwitcher.nextDirection('back');
+                            $state.go("list");
+                        }
+                    });
                 }
             }, function(error) {
                 $ionicPopup.alert({ title: '扫描失败', template: error, okText: '确定' }).then(function () {

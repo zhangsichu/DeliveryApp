@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('ddApp', ['ionic', 'ddApp.services', 'ddApp.controllers', 'ngCordova'])
+angular.module('ddApp', ['ionic', 'ddApp.services', 'ddApp.controllers', 'ngCordova', 'ngStorage'])
 .directive('onValidSubmit', ['$parse', '$timeout', function($parse, $timeout) {
     return {
         require: '^form',
@@ -56,7 +56,7 @@ angular.module('ddApp', ['ionic', 'ddApp.services', 'ddApp.controllers', 'ngCord
         }
     }
 }])
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope, $state, AuthenticationService) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -66,6 +66,13 @@ angular.module('ddApp', ['ionic', 'ddApp.services', 'ddApp.controllers', 'ngCord
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+  });
+
+  $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
+      if (AuthenticationService.isNeedLogin(toState.data) && !AuthenticationService.isLogin()) {
+          event.preventDefault();
+          $state.go('login');
+      }
   });
 })
 .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
@@ -80,25 +87,39 @@ angular.module('ddApp', ['ionic', 'ddApp.services', 'ddApp.controllers', 'ngCord
       'list', {
         url: '/list',
         templateUrl: 'templates/list.html',
-        controller: 'ListCtrl'
+        controller: 'ListCtrl',
+        cache: false,
+        data: {
+            requiredLogin: true
+        }
       })
       .state(
       'scan', {
         url: '/scan',
         templateUrl: 'templates/scan.html',
-        controller: 'ScanCtrl'
+        controller: 'ScanCtrl',
+        data: {
+            requiredLogin: true
+        }
       })
       .state(
       'manual', {
         url: '/manual',
         templateUrl: 'templates/manual.html',
-        controller: 'ManualCtrl'
+        controller: 'ManualCtrl',
+        data: {
+            requiredLogin: true
+        }
       })
       .state(
       'detail', {
         url: '/detail/:orderId',
         templateUrl: 'templates/detail.html',
-        controller: 'DetailCtrl'
+        controller: 'DetailCtrl',
+        cache: false,
+        data: {
+            requiredLogin: true
+        }
       })
 
   // if none of the above states are matched, use this as the fallback

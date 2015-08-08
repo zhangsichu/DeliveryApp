@@ -5,7 +5,7 @@
 angular.module('ddApp.services', [])
     .factory("CommonService", function () {
         var service = {
-            baseUrl: "http://localhost:3000/",
+            baseUrl: "http://192.168.1.105:3000/",
             buildUrl: function (subUrl) {
                 return this.baseUrl + subUrl;
             }

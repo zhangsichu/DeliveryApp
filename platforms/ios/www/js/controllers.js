@@ -62,7 +62,12 @@ angular.module('ddApp.controllers', ['ddApp.services'])
             $state.go("detail", {orderId: orderId}, {reload: true});
         };
 
+        var working = false;
         var doScan = function(){
+            if(working)
+                return;
+            
+            working = true;
             $cordovaBarcodeScanner.scan().then(function(imageData) {
                 if(imageData.text != null && imageData.text != ''){
                     $ionicPopup.alert({ title: '扫描成功', template: "订单:" + imageData.text, okText: '确定' }).then(function () {
@@ -113,11 +118,13 @@ angular.module('ddApp.controllers', ['ddApp.services'])
                         }
                     });
                 }
+                working = false;
             }, function(error) {
                 $ionicPopup.alert({ title: '扫描失败', template: error, okText: '确定' }).then(function () {
                     $ionicViewSwitcher.nextDirection('back');
                     $state.go("list");
                 });
+                working = false;
             });
         };
 

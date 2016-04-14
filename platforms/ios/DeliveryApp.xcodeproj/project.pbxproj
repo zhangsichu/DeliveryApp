@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		08AD78C2969643DFB89953FF /* CDVBarcodeScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 82E69BF297634FB8A28B4ADB /* CDVBarcodeScanner.bundle */; };
 		0A4569761EB547C4849F6591 /* CDVBarcodeScanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = E8B83A86C0EF40DFA69E1FFC /* CDVBarcodeScanner.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
